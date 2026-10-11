@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Omega Trade Center</title><meta name="description" content="Omega Trade Center - home appliances, kitchenware, watches and more in Colombo. Browse what is in stock."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%AC%3C/text%3E%3C/svg%3E"><style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f9;--card:#fff;--text:#14213d;--muted:#5b6475;--brand:#0b3d91;--accent:#e63946;--ok:#1b8a4b;--out:#a33;--line:#e2e5ea}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1420;--card:#171f2f;--text:#eef1f7;--muted:#9aa5b8;--brand:#5b8def;--accent:#ff6b76;--ok:#4cc380;--out:#ff7b7b;--line:#26304a}}
+:root[data-theme="dark"]{--bg:#0e1420;--card:#171f2f;--text:#eef1f7;--muted:#9aa5b8;--brand:#5b8def;--accent:#ff6b76;--ok:#4cc380;--out:#ff7b7b;--line:#26304a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--line);z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:20px;letter-spacing:.5px;color:var(--brand)}
+.logo span{color:var(--accent)}
+nav a{margin-left:20px;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--brand)}
+.hero{background:linear-gradient(135deg,var(--brand),#16213e);color:#fff;padding:64px 0}
+.hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 12px;line-height:1.15}
+.hero p{max-width:560px;opacity:.9;margin:0 0 24px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-weight:600;border:0;cursor:pointer;font-size:15px}
+section{padding:48px 0}
+h2{font-size:26px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 24px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+input,select{padding:11px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font-size:15px}
+input{flex:1;min-width:200px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{padding:7px 16px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--text);cursor:pointer;font-size:14px}
+.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column}
+.ico{aspect-ratio:1/1;background:#fff;border-radius:8px;margin-bottom:12px;overflow:hidden}.ico img{width:100%;height:100%;object-fit:cover;display:block}
+.cat{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.card h3{font-size:16px;margin:4px 0 8px}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.price{font-weight:700;font-size:17px}
+.tag{font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px}
+.in{color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.low{color:#b7791f;background:color-mix(in srgb,#d69e2e 18%,transparent)}
+.no{color:var(--out);background:color-mix(in srgb,var(--out) 15%,transparent)}
+.card a.enq{margin-top:12px;text-align:center;border:1px solid var(--brand);color:var(--brand);padding:8px;border-radius:8px;font-size:14px;font-weight:600}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+footer{background:#0b1220;color:#c5cbd8;padding:36px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+
+#admin{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:20;overflow:auto;padding:calc(16px + env(safe-area-inset-top,0px)) 12px calc(16px + env(safe-area-inset-bottom,0px))}
+#admin[hidden]{display:none}
+.panel{background:var(--card);max-width:760px;margin:0 auto;border-radius:12px;padding:20px}
+.panel h3{margin:0 0 12px}
+.arow{display:grid;grid-template-columns:44px 1fr 90px auto auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.arow img{width:44px;height:44px;border-radius:6px;object-fit:cover}
+.arow input[type=number]{width:90px;min-width:0}
+.arow button,.panel .sm{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:6px;padding:6px 10px;cursor:pointer}
+.add{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.add input{min-width:0}
+.add .full{grid-column:1/-1}
+#amsg{margin:10px 0;font-size:14px;color:var(--muted)}
+.bar{display:flex;gap:10px;flex-wrap:wrap}
+#alink{color:#c5cbd8;font-size:13px;opacity:.7}
+@media(max-width:560px){.arow{grid-template-columns:44px 1fr 80px}}
+</style></head><body><div id="root">
+<header><div class="wrap nav"><a class="logo" href="#">OMEGA<span>.</span> TRADE CENTER</a>
+<nav><a href="#store">Store</a><a href="#about">Why Us</a><a href="#contact">Contact</a></nav></div></header>
+<div class="hero"><div class="wrap"><h1>Quality products, available now.</h1>
+<p>Browse what's currently in stock at Omega Trade Center and enquire in a tap.</p>
+<a class="btn" href="#store">Browse the Store</a></div></div>
+<section id="store"><div class="wrap"><h2>Our Store</h2>
+<p class="sub">Items currently in stock. Prices in LKR. Message us on WhatsApp to confirm availability.</p>
+<div class="tools"><input id="q" type="search" placeholder="Search products...">
+<select id="stock"><option value="all">Sort: Featured</option><option value="lo">Price: Low to High</option><option value="hi">Price: High to Low</option></select></div>
+<div class="chips" id="chips"></div><div class="grid" id="grid"></div></div></section>
+<section id="about" style="background:var(--card)"><div class="wrap"><h2>Why Omega Trade Center</h2><p class="sub">Trusted supply, clear availability.</p>
+<div class="about"><div><h3>✔ Genuine Products</h3><p class="sub">Sourced from authorized suppliers.</p></div>
+<div><h3>🚚 Fast Delivery</h3><p class="sub">Island-wide delivery on request.</p></div>
+<div><h3>🛠 After-sales Support</h3><p class="sub">Warranty and service you can rely on.</p></div></div></div></section>
+<section id="contact"><div class="wrap"><h2>Contact Us</h2><p class="sub">Visit our showroom or message us to check availability.</p>
+<p>📍 Colombo, Sri Lanka<br>📞 <a href="tel:+94743839501" style="color:var(--brand)">074 383 9501</a> (call or WhatsApp)</p></div></section>
+<footer><div class="wrap"><div>© 2026 Omega Trade Center. All rights reserved.</div><div>Mon–Sat · 9:00 AM – 6:00 PM · <a href="#" id="alink">Admin</a></div></div></footer>
+<div id="admin" hidden><div class="panel"><h3>Store admin</h3>
+<p class="sub" style="margin:0 0 10px">Add, edit or hide products, then press Save to website. Changes go live in about a minute.</p>
+<details id="gset"><summary>GitHub connection (set once)</summary><div class="add"><input id="gu" placeholder="GitHub username"><input id="gr" placeholder="Repository name"><input id="gt" class="full" type="password" placeholder="GitHub token"></div></details><div class="add"><input id="an" class="full" placeholder="Product name">
+<input id="ac" list="cats" placeholder="Category"><datalist id="cats"></datalist>
+<input id="ap" type="number" min="0" placeholder="Price (LKR)">
+<input id="af" class="full" type="file" accept="image/*">
+<button class="btn full" id="aadd" type="button">Add product</button></div>
+<div id="alist"></div><div id="amsg"></div>
+<div class="bar"><button class="btn" id="asave" type="button">Save to website</button><button class="sm" id="aclose" type="button">Close</button></div></div></div>
+</div><script>
+var P=[],cat='All',prev={};
+var $=function(i){return document.getElementById(i)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function src(p){return prev[p[3]]||p[3]}
+function render(){
+ var live=P.filter(function(p){return p[4]!==0}),cs=['All'];
+ live.forEach(function(p){if(cs.indexOf(p[1])<0)cs.push(p[1])});
+ if(cs.indexOf(cat)<0)cat='All';
+ $('chips').innerHTML=cs.map(function(c){return '<button class="chip'+(c===cat?' on':'')+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join('');
+ var t=$('q').value.toLowerCase(),m=$('stock').value;
+ var L=live.filter(function(p){return (cat==='All'||p[1]===cat)&&(!t||p[0].toLowerCase().indexOf(t)>=0)});
+ if(m==='lo')L.sort(function(a,b){return a[2]-b[2]});if(m==='hi')L.sort(function(a,b){return b[2]-a[2]});
+ $('grid').innerHTML=L.map(function(p){return '<div class="card"><div class="ico"><img src="'+esc(src(p))+'" alt="'+esc(p[0])+'" loading="lazy"></div><div class="cat">'+esc(p[1])+'</div><h3>'+esc(p[0])+'</h3><div class="row"><span class="price">Rs. '+Number(p[2]).toLocaleString()+'</span><span class="tag in">In stock</span></div><a class="enq" target="_blank" rel="noopener" href="https://wa.me/94743839501?text='+encodeURIComponent('Hi Omega Trade Center, is this still available: '+p[0]+'?')+'">Enquire on WhatsApp</a></div>'}).join('')||'<div class="empty">No products match your search.</div>';
+}
+fetch('products.json?'+Date.now()).then(function(r){return r.json()}).then(function(d){P=d;render()}).catch(function(){$('grid').innerHTML='<div class="empty">Could not load products. Please refresh.</div>'});
+$('chips').onclick=function(e){var c=e.target.getAttribute('data-c');if(c){cat=c;render()}};
+$('q').oninput=render;$('stock').onchange=render;
+function msg(t){$('amsg').textContent=t}
+function alist(){
+ $('alist').innerHTML=P.map(function(p,i){return '<div class="arow"><img src="'+esc(src(p))+'" alt=""><span>'+esc(p[0])+'</span><input type="number" min="0" value="'+p[2]+'" data-i="'+i+'" class="pr"><label><input type="checkbox" class="st" data-i="'+i+'"'+(p[4]!==0?' checked':'')+'> In stock</label><button type="button" class="del" data-i="'+i+'">Delete</button></div>'}).join('');
+ var cs=[];P.forEach(function(p){if(cs.indexOf(p[1])<0)cs.push(p[1])});
+ $('cats').innerHTML=cs.map(function(c){return '<option value="'+esc(c)+'">'}).join('');
+}
+$('alist').onchange=function(e){var i=e.target.getAttribute('data-i');if(i===null)return;
+ if(e.target.className==='pr')P[i][2]=Number(e.target.value)||0;if(e.target.className==='st')P[i][4]=e.target.checked?1:0};
+$('alist').onclick=function(e){var i=e.target.getAttribute('data-i');if(e.target.className==='del'&&i!==null&&confirm('Delete '+P[i][0]+'?')){P.splice(i,1);alist()}};
+$('alink').onclick=async function(e){e.preventDefault();var pw=prompt('Enter admin password');if(!pw)return;
+ var ok=false;try{var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(pw));ok=Array.from(new Uint8Array(b)).map(function(x){return ('0'+x.toString(16)).slice(-2)}).join('')==='8f3f4214d266884c901990ddc7d453f2f1c82af02d554a766a7804244a06e5c5'}catch(_){}
+ if(!ok){alert('Incorrect password');return}
+ try{var g=JSON.parse(localStorage.getItem('omega_gh')||'{}');$('gu').value=g.u||'';$('gr').value=g.r||'';$('gt').value=g.t||''}catch(_){}
+ alist();msg('');$('admin').hidden=false};
+$('aclose').onclick=function(){$('admin').hidden=true;render()};
+function shrink(file){return new Promise(function(ok,no){var r=new FileReader();r.onerror=no;r.onload=function(){var im=new Image();im.onerror=no;im.onload=function(){
+ var s=Math.min(im.width,im.height),c=document.createElement('canvas');c.width=c.height=360;
+ c.getContext('2d').drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,360,360);ok(c.toDataURL('image/jpeg',0.82))};im.src=r.result};r.readAsDataURL(file)})}
+$('aadd').onclick=function(){
+ var n=$('an').value.trim(),c=$('ac').value.trim(),p=Number($('ap').value),f=$('af').files[0];
+ if(!n||!c||!p||!f){msg('Please fill name, category, price and choose a photo.');return}
+ shrink(f).then(function(d){P.unshift([n,c,p,d,1]);$('an').value='';$('ap').value='';$('af').value='';alist();render();msg('Added. Press Save to website to publish it.')}).catch(function(){msg('Could not read that photo.')});
+};
+$('asave').onclick=async function(){
+ var u=$('gu').value.trim(),r=$('gr').value.trim(),t=$('gt').value.trim();
+ if(!u||!r||!t){msg('Enter your GitHub username, repository name and token first.');$('gset').open=true;return}
+ try{localStorage.setItem('omega_gh',JSON.stringify({u:u,r:r,t:t}))}catch(_){}
+ msg('Saving...');
+ var base='https://api.github.com/repos/'+u+'/'+r+'/contents/',H={'Authorization':'Bearer '+t,'Accept':'application/vnd.github+json'};
+ async function put(path,b64,m){var sha,g=await fetch(base+path,{headers:H});
+  if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)throw new Error('GitHub '+g.status);
+  var body={message:m,content:b64};if(sha)body.sha=sha;
+  var x=await fetch(base+path,{method:'PUT',headers:H,body:JSON.stringify(body)});if(!x.ok)throw new Error('GitHub '+x.status)}
+ try{
+  for(var i=0;i<P.length;i++){if(P[i][3].indexOf('data:')===0){var d=P[i][3],path='images/'+Date.now()+'-'+i+'.jpg';await put(path,d.split(',')[1],'Add product photo');prev[path]=d;P[i][3]=path}}
+  await put('products.json',btoa(unescape(encodeURIComponent(JSON.stringify(P)))),'Update products');
+  msg('Saved. Your website will show the changes in about 1 minute.');alist();
+ }catch(e){msg('Could not save ('+e.message+'). Check your username, repository name and token.')}
+};
+</script></body></html>
