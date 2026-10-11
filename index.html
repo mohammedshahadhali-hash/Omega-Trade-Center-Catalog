@@ -132,15 +132,16 @@ $('asave').onclick=async function(){
  if(!u||!r||!t){msg('Enter your GitHub username, repository name and token first.');$('gset').open=true;return}
  try{localStorage.setItem('omega_gh',JSON.stringify({u:u,r:r,t:t}))}catch(_){}
  msg('Saving...');
- var base='https://api.github.com/repos/'+u+'/'+r+'/contents/',H={'Authorization':'Bearer '+t,'Accept':'application/vnd.github+json'};
+ var base='https://api.github.com/repos/'+u+'/'+r+'/contents/',H={'Authorization':'Bearer '+t,'Accept':'application/vnd.github+json','Content-Type':'application/json','X-GitHub-Api-Version':'2022-11-28'};
+ async function fail(res){var m='';try{m=(await res.json()).message}catch(_){}throw new Error(res.status+(m?' - '+m:''))}
  async function put(path,b64,m){var sha,g=await fetch(base+path,{headers:H});
-  if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)throw new Error('GitHub '+g.status);
+  if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)await fail(g);
   var body={message:m,content:b64};if(sha)body.sha=sha;
-  var x=await fetch(base+path,{method:'PUT',headers:H,body:JSON.stringify(body)});if(!x.ok)throw new Error('GitHub '+x.status)}
+  var x=await fetch(base+path,{method:'PUT',headers:H,body:JSON.stringify(body)});if(!x.ok)await fail(x)}
  try{
   for(var i=0;i<P.length;i++){if(P[i][3].indexOf('data:')===0){var d=P[i][3],path='images/'+Date.now()+'-'+i+'.jpg';await put(path,d.split(',')[1],'Add product photo');prev[path]=d;P[i][3]=path}}
   await put('products.json',btoa(unescape(encodeURIComponent(JSON.stringify(P)))),'Update products');
   msg('Saved. Your website will show the changes in about 1 minute.');alist();
- }catch(e){msg('Could not save ('+e.message+'). Check your username, repository name and token.')}
+ }catch(e){var s=String(e.message),k=s.slice(0,3);msg('Could not save. GitHub says: '+s+'. '+(k==='401'?'Your token is wrong or expired. Create a new token.':k==='403'||k==='422'?'Your token needs Contents: Read and write for this repository.':k==='404'?'Check the username and repository name, and that the token has access to this repository.':'Check your internet connection, username, repository name and token.'))}
 };
 </script></body></html>
